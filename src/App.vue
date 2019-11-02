@@ -15,6 +15,12 @@ import NewQuote from './components/NewQuote.vue';
               quotes:[" It is just quote to see something"]
           };
         },
+        methods:{
+          newQuote(quote){
+            this.quotes.push(quote);
+              console.log('New Quote is:',quote);
+          }
+        },
         components:{
           appQuouteGrid: QuoteGrid,
           appNewQuote: NewQuote
