@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-      <app-header></app-header>
+      <app-header :quoteCount='quotes.length' :maxQuote="maxQuotes" ></app-header>
       <app-new-quote @quoteAdded='newQuote'></app-new-quote>
       <app-quoute-grid :quotes='quotes' @deletedQuote='deleteQuote'></app-quoute-grid>
       <div class="row">
@@ -26,6 +26,9 @@ import Header from './components/Header.vue';
         },
         methods:{
           newQuote(quote){
+            if(this.quotes.length >= this.maxQuotes){
+              return alert('Please delete quote first');
+            }
             this.quotes.push(quote);
               console.log('New Quote is:',quote);
           },
